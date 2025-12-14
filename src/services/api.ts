@@ -3,7 +3,7 @@ import type { AuthResponse, DashboardStats, User, Transaction } from '../types/i
 
 // Create axios instance
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://receivers-revolution-rehabilitation-attributes.trycloudflare.com',
   timeout: 30000, // Increased timeout for AI responses
   headers: {
     'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ export const login = async (
   password: string
 ): Promise<AuthResponse> => {
   const response = await axios.post<AuthResponse>(
-    'http://localhost:8080/api/v1/auth/admin/login',
+    'https://receivers-revolution-rehabilitation-attributes.trycloudflare.com/api/v1/auth/admin/login',
     { email, password },
     {
       headers: {
