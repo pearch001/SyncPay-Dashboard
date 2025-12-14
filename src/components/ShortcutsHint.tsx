@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { X, Keyboard, Command } from 'lucide-react';
+import { X, Keyboard } from 'lucide-react';
 
 export default function ShortcutsHint() {
   const [isVisible, setIsVisible] = useState(false);

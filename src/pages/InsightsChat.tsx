@@ -13,7 +13,6 @@ import ConversationContext from '../components/ConversationContext';
 import ConnectionStatus from '../components/ConnectionStatus';
 import AIThinkingInsights from '../components/AIThinkingInsights';
 import { useChatStore } from '../store/chatStore';
-import type { MessageStatus } from '../store/chatStore';
 import { sendChatMessage } from '../services/chatApi';
 
 const MIN_INPUT_LENGTH = 2;
@@ -112,7 +111,6 @@ export default function InsightsChat() {
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [lastUserMessage, setLastUserMessage] = useState<string | null>(null);
-  const [lastUserMessageId, setLastUserMessageId] = useState<string | null>(null);
   const [showDelayedMessage, setShowDelayedMessage] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [liveRegionMessage, setLiveRegionMessage] = useState('');
@@ -120,8 +118,8 @@ export default function InsightsChat() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const errorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const delayedMessageTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const errorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const delayedMessageTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const messageRefs = useRef<(HTMLElement | null)[]>([]);
 
   const { messages, isLoading, error, saveHistory, conversationId, addMessage, clearMessages, setError, setConversationId, setLoading, loadHistory, setSaveHistory, updateMessageStatus } = useChatStore();
@@ -921,7 +919,7 @@ export default function InsightsChat() {
                           <div
                             key={msg.id}
                             className={isNewSpeaker ? 'mt-5' : 'mt-3'}
-                            ref={(el) => (messageRefs.current[messageIndex] = el)}
+                            ref={(el) => { messageRefs.current[messageIndex] = el; }}
                             tabIndex={0}
                           >
                             <ChatMessage

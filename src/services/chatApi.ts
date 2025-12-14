@@ -145,11 +145,11 @@ export const sendChatMessage = async (
  * );
  */
 export const sendChatMessageStream = async (
-  message: string,
-  conversationId?: string,
-  onChunk?: (chunk: string) => void,
-  onComplete?: (response: ChatResponse) => void,
-  onError?: (error: ChatError) => void
+  _message: string,
+  _conversationId?: string,
+  _onChunk?: (chunk: string) => void,
+  _onComplete?: (response: ChatResponse) => void,
+  _onError?: (error: ChatError) => void
 ): Promise<void> => {
   // Will use SSE for streaming responses
   // const eventSource = new EventSource(`/api/v1/chat/stream?message=${encodeURIComponent(message)}`);
@@ -181,7 +181,7 @@ export const sendChatMessageStream = async (
  * Expected endpoint: GET /api/v1/chat/history/:conversationId
  */
 export const getChatHistory = async (
-  conversationId: string
+  _conversationId: string
 ): Promise<ChatMessage[]> => {
   // const response = await api.get<{ messages: ChatMessage[] }>(
   //   `/chat/history/${conversationId}`
@@ -199,7 +199,7 @@ export const getChatHistory = async (
  * Expected endpoint: DELETE /api/v1/chat/:conversationId
  */
 export const deleteConversation = async (
-  conversationId: string
+  _conversationId: string
 ): Promise<{ success: boolean }> => {
   // const response = await api.delete<{ success: boolean }>(
   //   `/chat/${conversationId}`

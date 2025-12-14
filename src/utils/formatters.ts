@@ -49,7 +49,7 @@ export const formatPercentage = (value: number, decimals: number = 1): string =>
  */
 export const enhanceNumbersInText = (text: string): string => {
   // Format currency patterns (₦1234567.89 -> ₦1,234,567.89)
-  text = text.replace(/₦(\d+)/g, (match, num) => {
+  text = text.replace(/₦(\d+)/g, (_match, num) => {
     return formatCurrency(parseFloat(num));
   });
 
