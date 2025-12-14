@@ -77,7 +77,7 @@ export const login = async (
   password: string
 ): Promise<AuthResponse> => {
   const response = await axios.post<AuthResponse>(
-    'http://44.221.46.51:8080/api/v1/auth/admin/login',
+    'https://trying-furnished-threatening-falling.trycloudflare.com/api/v1/auth/admin/login',
     { email, password },
     {
       headers: {
