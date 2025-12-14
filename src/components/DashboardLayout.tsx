@@ -9,6 +9,7 @@ import {
   Menu,
   X,
   ChevronDown,
+  MessageSquare,
 } from 'lucide-react';
 import { APP_NAME, POWERED_BY } from '../utils/constants';
 import { useAuthStore } from '../store/authStore';
@@ -25,6 +26,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: 'Analytics', path: '/analytics', icon: Home },
+  { name: 'Business Insights', path: '/insights', icon: MessageSquare },
   { name: 'Users', path: '/users', icon: Users },
   { name: 'Transactions', path: '/transactions', icon: CreditCard },
 ];

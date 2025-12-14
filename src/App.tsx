@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Analytics from './pages/Analytics';
+import InsightsChat from './pages/InsightsChat';
 import Users from './pages/Users';
 import Transactions from './pages/Transactions';
 import DashboardLayout from './components/DashboardLayout';
@@ -36,6 +37,16 @@ function App() {
           <ProtectedRoute>
             <DashboardLayout>
               <Analytics />
+            </DashboardLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/insights"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout>
+              <InsightsChat />
             </DashboardLayout>
           </ProtectedRoute>
         }

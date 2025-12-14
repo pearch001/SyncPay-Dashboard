@@ -33,7 +33,10 @@ export default function Login() {
       // Handle error - check multiple possible error properties
       let errorMessage = 'An unexpected error occurred. Please try again.';
 
-      if (err?.response?.data?.error) {
+      if (err?.response?.data?.errors?.length > 0) {
+        // API returned validation errors array - get message from first error
+        errorMessage = err.response.data.errors[0].message;
+      } else if (err?.response?.data?.error) {
         // API returned error in response.data.error
         errorMessage = err.response.data.error;
       } else if (err?.error) {

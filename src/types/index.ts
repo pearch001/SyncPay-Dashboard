@@ -53,3 +53,14 @@ export interface AuthError {
   success: false;
   error: string;
 }
+
+export interface ChartData {
+  type: 'line' | 'bar' | 'pie' | 'donut' | 'area';
+  title: string;
+  data: Record<string, unknown>[];
+  labels?: {
+    x?: string;
+    y?: string;
+  };
+  dataKeys?: string[];
+}
