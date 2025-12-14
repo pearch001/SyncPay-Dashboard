@@ -94,7 +94,7 @@ export const login = async (
  * @returns Dashboard statistics
  */
 export const getDashboardStats = async (): Promise<DashboardStats> => {
-  // TODO: Implement actual API call
+  // TODO: Implement actual API call.
   // return api.get('/dashboard/stats');
   throw new Error('Not implemented yet');
 };
