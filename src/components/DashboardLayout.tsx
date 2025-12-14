@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Home,
   Users,
@@ -33,7 +33,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   // Get user data from auth store
   const { user, logout: logoutFromStore } = useAuthStore();

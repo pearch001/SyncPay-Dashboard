@@ -107,9 +107,9 @@ export const getDashboardStats = async (): Promise<DashboardStats> => {
  * @returns List of users
  */
 export const getUsers = async (
-  page: number,
-  limit: number,
-  status?: 'active' | 'inactive'
+  _page: number,
+  _limit: number,
+  _status?: 'active' | 'inactive'
 ): Promise<{ users: User[]; total: number }> => {
   // TODO: Implement actual API call
   // const params = { page, limit, ...(status && { status }) };
@@ -126,10 +126,10 @@ export const getUsers = async (
  * @returns List of transactions
  */
 export const getTransactions = async (
-  page: number,
-  limit: number,
-  status?: 'SUCCESS' | 'PENDING' | 'FAILED',
-  dateRange?: { from: string; to: string }
+  _page: number,
+  _limit: number,
+  _status?: 'SUCCESS' | 'PENDING' | 'FAILED',
+  _dateRange?: { from: string; to: string }
 ): Promise<{ transactions: Transaction[]; total: number }> => {
   // TODO: Implement actual API call
   // const params = {

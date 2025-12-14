@@ -1,12 +1,6 @@
 import { useState } from 'react';
 import { Sparkles, RefreshCw } from 'lucide-react';
 
-interface Insight {
-  id: number;
-  text: string;
-  icon?: string;
-}
-
 const insightsSets = [
   [
     { id: 1, text: 'Revenue increased 21% this month - highest growth in Q4', icon: '📈' },

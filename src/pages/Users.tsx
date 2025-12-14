@@ -171,7 +171,7 @@ export default function Users() {
   // Filter users
   const filteredUsers = dummyUsers.filter(user => {
     const matchesSearch =
-      user.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (user.fullName ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
       user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
       user.phoneNumber.includes(searchQuery);
 
@@ -334,7 +334,7 @@ export default function Users() {
                     <div className="flex items-center">
                       <div className="flex-shrink-0 h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center">
                         <span className="text-primary-600 font-semibold text-sm">
-                          {getInitials(user.fullName)}
+                          {getInitials(user.fullName ?? '')}
                         </span>
                       </div>
                       <div className="ml-4">
@@ -350,7 +350,7 @@ export default function Users() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900">
-                      {formatBalance(user.balance)}
+                      {formatBalance(user.balance ?? 0)}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -365,7 +365,7 @@ export default function Users() {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {getRelativeTime(user.lastLoginAt)}
+                    {getRelativeTime(user.lastLoginAt ?? '')}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <button
