@@ -77,7 +77,7 @@ export const login = async (
   password: string
 ): Promise<AuthResponse> => {
   const response = await axios.post<AuthResponse>(
-    'https://oklahoma-collections-publishers-turning.trycloudflare.com',
+    'https://oklahoma-collections-publishers-turning.trycloudflare.com/api/v1/auth/admin/login',
     { email, password },
     {
       headers: {
